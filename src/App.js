@@ -13,8 +13,9 @@ function App() {
   const [total, setTotal] = useState(0);
 
   const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1
-    }/${current.getFullYear()}`;
+  const date = `${current.getFullYear()}/${current.getMonth() + 1
+  }/${current.getDate()}`;
+  
 
   useEffect(() => {
 
@@ -45,6 +46,19 @@ function App() {
 
     obtenerDatos();
   };
+  const handleOrdenarFecha = async () => {
+    const p = await getItems();
+    
+    setObjetos(p.docs.sort(function (c, d) {
+      let a = new Date(c.data().obj3);
+      let b = new Date(d.data().obj3);
+     console.log(a);
+        return a-b;
+      
+    }));
+    console.log(objetos[0].data())
+
+  }
   const handleOrdenar = async () => {
     const p = await getItems();
     
@@ -132,6 +146,10 @@ function App() {
         <button class="uk-button naranja uk-margin" onClick={handleOrdenarReverse}>
           Cantidad
         </button>
+        <button class="uk-button naranja uk-margin" onClick={handleOrdenarFecha}>
+          Fecha
+        </button>
+        
         <table className="uk-table">
           <thead>
             <tr>
