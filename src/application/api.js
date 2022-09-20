@@ -68,6 +68,14 @@ export const updateItem = async (id,obj) =>
 {
     await updateDoc(doc(db,"persons",id),{obj})
 };
+export const updateItemMoney = async (id,obj2) =>
+{
+    await updateDoc(doc(db,"persons",id),{obj2})
+};
+export const updateItemDate = async (id,obj3) =>
+{
+    await updateDoc(doc(db,"persons",id),{obj3})
+};
 const getArrayFromCollection = (collection) => {
   return collection.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };

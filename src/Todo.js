@@ -1,5 +1,5 @@
 import React from "react";
-const Todos = ({ todos, loading, handleEliminar,handleEditar }) => {
+const Todos = ({ todos, loading, handleEliminar,handleEditar,handleEditar2,handleEditar3 }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
@@ -36,11 +36,22 @@ const Todos = ({ todos, loading, handleEliminar,handleEditar }) => {
               <span uk-icon="trash"></span>
             </button>
             <button
-              class="uk-button uk-button-primary rojo"
-              onClick={() => handleEditar(o.id)}
-            >
-              <span uk-icon="heart"></span>
-            </button>
+              class="uk-button uk-button-secondary"
+              onClick={() => handleEditar(o.id,o.data().obj)}
+            ><span uk-icon="pencil"></span></button>
+            <br></br>
+                 <button
+              class="uk-button uk-button-secondary azul"
+              onClick={() => handleEditar2(o.id,o.data().obj3)}
+            ><span uk-icon="calendar"></span>
+                </button>
+                 <button
+              class="uk-button uk-button-secondary verde"
+              onClick={() => handleEditar3(o.id,o.data().obj2)}
+            ><span uk-icon="credit-card"></span></button>
+           
+              
+            
           </td>
         </tr>
       ))}
