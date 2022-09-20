@@ -1,10 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { createItem, deleteItem, getItems } from "./application/api";
+import { createItem, deleteItem, getFoto, getItems, updateItem } from "./application/api";
 import React, { useEffect, useState } from "react";
 import StickyFooter from "./application/StickyFooter";
 import * as alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
+import axios from "axios";
+import Pagination from "./Pagination";
+import Todos from "./Todo";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -12,6 +15,16 @@ function App() {
   const [objetos, setObjetos] = useState([]);
   const [total, setTotal] = useState(0);
   const [fecha, setFecha] = useState("");
+  const [buscador, setBuscador] = useState("");
+
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [todosPerPage] = useState(4);
+  const indexOfLastTodo = currentPage * todosPerPage;
+  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+  const currentTodos = objetos.filter(word => word.data().obj.toLowerCase().includes(buscador.toLowerCase())).slice(indexOfFirstTodo, indexOfLastTodo);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const [loading, setLoading] = useState(false);
 
   const current = new Date();
   const date = `${current.getFullYear()}/${current.getMonth() + 1
@@ -21,7 +34,7 @@ function App() {
   useEffect(() => {
 
     
-
+    
     obtenerDatos();
    
   }, []);
@@ -39,7 +52,7 @@ function App() {
     setTotal(valor);
   };
 
-  const handleSave = () => {
+  const handleSave =   async () => {
     
     
     if(item.length == 0 || item2.length == 0){
@@ -49,14 +62,26 @@ function App() {
   });
       alertify.error("Rellena los campos");
     }else{
-      createItem(item, item2, date);
-      alertify.success("Se ha creado correctamente");
-      setItem("");
-      setItem2("");
+       axios.get("https://api.giphy.com/v1/gifs/search?api_key=7gM6DDxpzNDtKV1TFv9yVaJuloTe5HDG&q="+item).then((response) => {
+        console.log(response.data.data.length)
+        let b = ""
+        if(response.data.data.length > 0){
+          b = response.data.data[0].images.downsized.url;
+        
+        }else{
+           b="";
+        }
+        createItem(item, item2, date,b);
+        alertify.success("Se ha creado correctamente");
+        setItem("");
+        setItem2("");
+        obtenerDatos();
+      }).catch((e) => console.log(e))
+      
     }
     
 
-    obtenerDatos();
+    
   };
   const handleOrdenarFecha = async () => {
     const p = await getItems();
@@ -136,6 +161,28 @@ function App() {
     
     
   };
+  const handleEditar = (id) => {
+    alertify.prompt("Actualizar datos.","Nombre",
+  function(evt, value,value2 ){
+    alertify.success('Ok: ' + value);
+    updateItem(id,value);
+    obtenerDatos();
+  },
+  function(){
+    alertify.error('Cancel');
+  })
+  ;
+  alertify.prompt("Actualizar datos.","Nombre",
+  function(evt, value,value2 ){
+    alertify.success('Ok: ' + value);
+    updateItem(id,value);
+    obtenerDatos();
+  },
+  function(){
+    alertify.error('Cancel');
+  })
+    
+  }
   const handleBuscarFecha = async () => {
     /* console.log(setFecha(nombre)); */
     console.log(fecha.toString())
@@ -203,32 +250,17 @@ function App() {
         <button class="uk-button naranja uk-margin" onClick={handleBuscarFecha}>
           Buscar
         </button></div>
+        <button href="#toggle" class="uk-button naranja uk-button-default" type="button" uk-toggle="target: #toggle; animation: uk-animation-fade">Buscar por nombre</button>
+<div className="uk-margin" id="toggle"> <input className="uk-input" placeholder="Buscar por nombre" onChange={(e) =>setBuscador(e.target.value)} type="string" />
+       </div>
        
-        <table className="uk-table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Cantidad</th>
-              <th>Fecha</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-
-          {objetos.map((o) => (
-            <tr>
-              {" "}
-              <td>{o.data().obj}</td> {o.data().obj2 >= 0 ? (<td className="uk-text-success">{o.data().obj2}€</td>) :(<td className="uk-text-danger">{o.data().obj2}€</td> )} <td>{o.data().obj3}</td>{" "}
-              <td>
-                <button
-                  class="uk-button uk-button-primary rojo"
-                  onClick={() => handleEliminar(o.id)}
-                >
-                  <span  uk-icon="trash"></span>
-                </button>
-              </td>
-            </tr>
-          ))}
-        </table>
+        
+         <Todos todos={currentTodos} loading={loading} handleEliminar={handleEliminar} handleEditar={handleEditar} /> 
+        <Pagination
+        todosPerPage={todosPerPage}
+        totalTodos={objetos.length}
+        paginate={paginate}
+      />
         <h1 class="uk-heading-divider"></h1>
         <p>Tus ingresos totales son: {total}€</p>
       </div>
