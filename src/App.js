@@ -257,53 +257,65 @@ function App() {
           value={item2}
           onChange={(e) => setItem2(e.target.value)}
         />
-      {/*   <button class="uk-button naranja uk-margin" onClick={handleSave}>
+        {/*   <button class="uk-button naranja uk-margin" onClick={handleSave}>
           Guardar
         </button> */}
         <div className="uk-flex botones uk-flex-wrap uk-flex-between uk-flex-middle uk-height-medium">
-        <button onClick={handleSave} class="btn-glitch-fill">
-    <span class="text">// Añadir</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-        {/* <button class="uk-button naranja uk-margin" onClick={handleOrdenar}>
+          <button onClick={handleSave} class="btn-glitch-fill">
+            <span class="text">// Añadir</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+          {/* <button class="uk-button naranja uk-margin" onClick={handleOrdenar}>
           Cantidad
         </button> */}
-         <button onClick={handleOrdenar} class="btn-glitch-fill">
-    <span class="text">// Mas barato</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-        {/* <button
+          <button onClick={handleOrdenar} class="btn-glitch-fill">
+            <span class="text">// Mas barato</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+          {/* <button
           class="uk-button naranja uk-margin"
           onClick={handleOrdenarReverse}
         >
           Cantidad
         </button> */}
-        <button onClick={handleOrdenarReverse} class="btn-glitch-fill">
-    <span class="text">// Mas caro</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-       {/*  <button
+          <button onClick={handleOrdenarReverse} class="btn-glitch-fill">
+            <span class="text">// Mas caro</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+          {/*  <button
           class="uk-button naranja uk-margin"
           onClick={handleOrdenarFecha}
         >
           Fecha
         </button> */}
-        <button onClick={handleOrdenarFecha} class="btn-glitch-fill">
-    <span class="text">// Mas antiguo</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-        {/* <button
+          <button onClick={handleOrdenarFecha} class="btn-glitch-fill">
+            <span class="text">// Mas antiguo</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+          {/* <button
           class="uk-button naranja uk-margin"
           onClick={handleOrdenarFechaInverso}
         >
           Fecha
         </button> */}
-        <button onClick={handleOrdenarFechaInverso} class="btn-glitch-fill">
-    <span class="text">// Mas moderno</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-       {/*  <button class="uk-button naranja " onClick={obtenerDatos}>
+          <button onClick={handleOrdenarFechaInverso} class="btn-glitch-fill">
+            <span class="text">// Mas moderno</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+          {/*  <button class="uk-button naranja " onClick={obtenerDatos}>
           Reset
         </button> */}
-        <button onClick={obtenerDatos} class="btn-glitch-fill">
-    <span class="text">// Reset</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-      {/*   <button
+          <button onClick={obtenerDatos} class="btn-glitch-fill">
+            <span class="text">// Reset</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+          {/*   <button
           href="#toggle-animation"
           class="uk-button naranja uk-button-default"
           type="button"
@@ -311,27 +323,33 @@ function App() {
         >
           Fecha especifica
         </button> */}
-        <button onClick={handleOrdenar} class="btn-glitch-fill"  href="#toggle-animation"
-          type="button"
-          uk-toggle="target: #toggle-animation; animation: uk-animation-fade">
-    <span class="text">// Fecha Especifica</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-        <div className="uk-margin" id="toggle-animation">
-          {" "}
-          <input
-            className="uk-input"
-            value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
-            type="date"
-          />
           <button
-            class="uk-button naranja uk-margin"
-            onClick={handleBuscarFecha}
+            onClick={handleOrdenar}
+            class="btn-glitch-fill"
+            href="#toggle-animation"
+            type="button"
+            uk-toggle="target: #toggle-animation; animation: uk-animation-fade"
           >
-            Buscar
+            <span class="text">// Fecha Especifica</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
           </button>
-        </div>
-        {/* <button
+          <div className="uk-margin" id="toggle-animation">
+            {" "}
+            <input
+              className="uk-input"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+              type="date"
+            />
+            <button
+              class="uk-button naranja uk-margin"
+              onClick={handleBuscarFecha}
+            >
+              Buscar
+            </button>
+          </div>
+          {/* <button
           href="#toggle"
           class="uk-button naranja uk-button-default"
           type="button"
@@ -339,13 +357,17 @@ function App() {
         >
           Buscar por nombre
         </button> */}
-        <button  class="btn-glitch-fill" href="#toggle"
-          
-          type="button"
-          uk-toggle="target: #toggle; animation: uk-animation-fade">
-    <span class="text">// Buscar por nombre</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
-  </button>
-  </div>
+          <button
+            class="btn-glitch-fill"
+            href="#toggle"
+            type="button"
+            uk-toggle="target: #toggle; animation: uk-animation-fade"
+          >
+            <span class="text">// Buscar por nombre</span>
+            <span class="text-decoration">_</span>
+            <span class="decoration">&rArr;</span>
+          </button>
+        </div>
         <div className="uk-margin" id="toggle">
           {" "}
           <input
@@ -356,27 +378,78 @@ function App() {
           />
         </div>
         <div class="uk-overflow-auto">
-        <Todos
-          todos={currentTodos}
-          loading={loading}
-          handleEliminar={handleEliminar}
-          handleEditar={handleEditar}
-          handleEditar2={handleEditar2}
-          handleEditar3={handleEditar3}
-        /> 
+          <Todos
+            todos={currentTodos}
+            loading={loading}
+            handleEliminar={handleEliminar}
+            handleEditar={handleEditar}
+            handleEditar2={handleEditar2}
+            handleEditar3={handleEditar3}
+          />
         </div>
-       <Pagination
+        <Pagination
           todosPerPage={todosPerPage}
           totalTodos={objetos.length}
           paginate={paginate}
-        /> 
+        />
         <h1 class="uk-heading-divider"></h1>
         <p>Tus ingresos totales son: {total}€</p>
-       
-  
+        <button
+          type="button"
+          uk-toggle="target: #offcanvas-flip"
+          class="btn-glitch-fill"
+        >
+          <span class="text">// Contacto con el desarrollador</span>
+          <span class="text-decoration">_</span>
+          <span class="decoration">&rArr;</span>
+        </button>
 
+        <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+          <div class="uk-offcanvas-bar">
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+            <h3>Contacto</h3>
+
+            <form
+              target="_blank"
+              action="https://formsubmit.co/pabloatenciano@gmail.com"
+              method="POST"
+            >
+              <input
+                type="text"
+                name="name"
+                class="uk-input uk-margin"
+                placeholder="Nombre"
+                required
+              />
+
+              <input
+                type="email"
+                name="email"
+                class="uk-input uk-margin"
+                placeholder="Email"
+                required
+              />
+<input type="hidden" name="_captcha" value="false"></input>
+
+<input type="hidden" name="_next" value="https://pabloaten.github.io/controldedinero/" />
+
+              <textarea
+                placeholder="Tu mensaje"
+                class="uk-input uk-margin"
+                name="message"
+                rows="10"
+                required
+              ></textarea>
+              <button type="submit" class="btn-glitch-fill amarillo uk-margin uk-height-1-1">
+                <span class="text">// Enviar</span>
+                <span class="text-decoration">_</span>
+                <span class="decoration">&rArr;</span>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-
     </div>
   );
 }

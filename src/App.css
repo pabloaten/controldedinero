@@ -1,10 +1,13 @@
 body{
     background-color: #FBAB7E;
 background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-height: 2000px;
+height: 2100px;
 width: 100%;
 
 
+}
+.amarillo{
+    background-color: yellow;
 }
 
 .imagen{
