@@ -231,7 +231,7 @@ function App() {
     setTotal(valor);
   };
   return (
-    <div className="fondo uk-background-width-1-1 uk-background-norepeat uk-background-top-center uk-flex uk-flex-column  uk-flex-middle">
+    <div className="fondo uk-flex uk-flex-column  uk-flex-middle">
       <div class="grid"></div>
       <div class="lines"></div>
       <h1>
@@ -260,6 +260,7 @@ function App() {
       {/*   <button class="uk-button naranja uk-margin" onClick={handleSave}>
           Guardar
         </button> */}
+        <div className="uk-flex botones uk-flex-wrap uk-flex-between uk-flex-middle uk-height-medium">
         <button onClick={handleSave} class="btn-glitch-fill">
     <span class="text">// Añadir</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
   </button>
@@ -278,29 +279,43 @@ function App() {
         <button onClick={handleOrdenarReverse} class="btn-glitch-fill">
     <span class="text">// Mas caro</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
   </button>
-        <button
+       {/*  <button
           class="uk-button naranja uk-margin"
           onClick={handleOrdenarFecha}
         >
           Fecha
-        </button>
-        <button
+        </button> */}
+        <button onClick={handleOrdenarFecha} class="btn-glitch-fill">
+    <span class="text">// Mas antiguo</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
+  </button>
+        {/* <button
           class="uk-button naranja uk-margin"
           onClick={handleOrdenarFechaInverso}
         >
           Fecha
-        </button>
-        <button class="uk-button naranja " onClick={obtenerDatos}>
+        </button> */}
+        <button onClick={handleOrdenarFechaInverso} class="btn-glitch-fill">
+    <span class="text">// Mas moderno</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
+  </button>
+       {/*  <button class="uk-button naranja " onClick={obtenerDatos}>
           Reset
-        </button>
-        <button
+        </button> */}
+        <button onClick={obtenerDatos} class="btn-glitch-fill">
+    <span class="text">// Reset</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
+  </button>
+      {/*   <button
           href="#toggle-animation"
           class="uk-button naranja uk-button-default"
           type="button"
           uk-toggle="target: #toggle-animation; animation: uk-animation-fade"
         >
           Fecha especifica
-        </button>
+        </button> */}
+        <button onClick={handleOrdenar} class="btn-glitch-fill"  href="#toggle-animation"
+          type="button"
+          uk-toggle="target: #toggle-animation; animation: uk-animation-fade">
+    <span class="text">// Fecha Especifica</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
+  </button>
         <div className="uk-margin" id="toggle-animation">
           {" "}
           <input
@@ -316,14 +331,21 @@ function App() {
             Buscar
           </button>
         </div>
-        <button
+        {/* <button
           href="#toggle"
           class="uk-button naranja uk-button-default"
           type="button"
           uk-toggle="target: #toggle; animation: uk-animation-fade"
         >
           Buscar por nombre
-        </button>
+        </button> */}
+        <button  class="btn-glitch-fill" href="#toggle"
+          
+          type="button"
+          uk-toggle="target: #toggle; animation: uk-animation-fade">
+    <span class="text">// Buscar por nombre</span><span class="text-decoration">_</span><span class="decoration">&rArr;</span>
+  </button>
+  </div>
         <div className="uk-margin" id="toggle">
           {" "}
           <input
@@ -333,7 +355,7 @@ function App() {
             type="string"
           />
         </div>
-
+        <div class="uk-overflow-auto">
         <Todos
           todos={currentTodos}
           loading={loading}
@@ -341,12 +363,13 @@ function App() {
           handleEditar={handleEditar}
           handleEditar2={handleEditar2}
           handleEditar3={handleEditar3}
-        />
-        <Pagination
+        /> 
+        </div>
+       <Pagination
           todosPerPage={todosPerPage}
           totalTodos={objetos.length}
           paginate={paginate}
-        />
+        /> 
         <h1 class="uk-heading-divider"></h1>
         <p>Tus ingresos totales son: {total}€</p>
        
