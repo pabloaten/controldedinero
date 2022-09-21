@@ -238,7 +238,7 @@ function App() {
         <span>Aten</span>
         <span>Aten</span>
       </h1>
-      <h2>Finanzas</h2>
+      <h2>Goodman</h2>
 
       <h3 className="uk-heading uk-text-center uk-text-bold">{date}</h3>
 
