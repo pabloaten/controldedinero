@@ -240,8 +240,13 @@ function App() {
         <span>Aten</span>
         <span>Aten</span>
       </h1>
+<<<<<<< HEAD
       <h2>goodman</h2>
       
+=======
+      <h2>Goodman</h2>
+
+>>>>>>> d71d2aea70ce8cce2ac01d5ea6abccc46c503b86
       <h3 className="uk-heading uk-text-center uk-text-bold">{date}</h3>
 
       <div class="uk-card uk-card-small uk-card-default uk-padding uk-margin tarjeta uk-box-shadow-large">
