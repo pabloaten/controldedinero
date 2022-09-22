@@ -3,7 +3,9 @@ body{
 background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
 height: 2100px;
 width: 100%;
-
+}
+button{
+    font-size: 15px;
 
 }
 .amarillo{
@@ -255,7 +257,7 @@ li a {
     color: white;
     background-color:#FBAB7E;
     padding: 10px 13px;
-    min-width: 175px;
+    min-width: 130px;
     line-height: 1.5em;
     white-space: no-wrap;
     text-transform: uppercase;

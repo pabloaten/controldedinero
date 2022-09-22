@@ -16,6 +16,8 @@ import "alertifyjs/build/css/alertify.css";
 import axios from "axios";
 import Pagination from "./Pagination";
 import Todos from "./Todo";
+import SVGatorComponent from "./application/undraw_transfer_money_re_6o1h";
+
 
 function App() {
   const [item, setItem] = useState([]);
@@ -238,8 +240,8 @@ function App() {
         <span>Aten</span>
         <span>Aten</span>
       </h1>
-      <h2>Finanzas</h2>
-
+      <h2>goodman</h2>
+      
       <h3 className="uk-heading uk-text-center uk-text-bold">{date}</h3>
 
       <div class="uk-card uk-card-small uk-card-default uk-padding uk-margin tarjeta uk-box-shadow-large">
@@ -260,7 +262,7 @@ function App() {
         {/*   <button class="uk-button naranja uk-margin" onClick={handleSave}>
           Guardar
         </button> */}
-        <div className="uk-flex botones uk-flex-wrap uk-flex-between uk-flex-middle uk-height-medium">
+        <div className="uk-flex botones uk-flex-wrap uk-flex-around uk-flex-middle uk-height-medium">
           <button onClick={handleSave} class="btn-glitch-fill">
             <span class="text">// Añadir</span>
             <span class="text-decoration">_</span>
@@ -302,6 +304,7 @@ function App() {
         >
           Fecha
         </button> */}
+        
           <button onClick={handleOrdenarFechaInverso} class="btn-glitch-fill">
             <span class="text">// Mas moderno</span>
             <span class="text-decoration">_</span>
@@ -403,6 +406,7 @@ function App() {
           <span class="text-decoration">_</span>
           <span class="decoration">&rArr;</span>
         </button>
+       
 
         <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
           <div class="uk-offcanvas-bar">
@@ -430,9 +434,13 @@ function App() {
                 placeholder="Email"
                 required
               />
-<input type="hidden" name="_captcha" value="false"></input>
+              <input type="hidden" name="_captcha" value="false"></input>
 
-<input type="hidden" name="_next" value="https://pabloaten.github.io/controldedinero/" />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://pabloaten.github.io/controldedinero/"
+              />
 
               <textarea
                 placeholder="Tu mensaje"
@@ -441,13 +449,17 @@ function App() {
                 rows="10"
                 required
               ></textarea>
-              <button type="submit" class="btn-glitch-fill amarillo uk-margin uk-height-1-1">
+              <button
+                type="submit"
+                class="btn-glitch-fill amarillo uk-margin uk-height-1-1"
+              >
                 <span class="text">// Enviar</span>
                 <span class="text-decoration">_</span>
                 <span class="decoration">&rArr;</span>
               </button>
             </form>
           </div>
+
         </div>
       </div>
     </div>
