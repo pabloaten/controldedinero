@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/controldedinero/static/css/main.801ad185.css",
-    "main.js": "/controldedinero/static/js/main.863f3424.js",
+    "main.css": "/controldedinero/static/css/main.b2ea01ef.css",
+    "main.js": "/controldedinero/static/js/main.a1575d84.js",
     "static/js/787.412a8a2e.chunk.js": "/controldedinero/static/js/787.412a8a2e.chunk.js",
     "static/media/logo.svg": "/controldedinero/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/controldedinero/index.html",
-    "main.801ad185.css.map": "/controldedinero/static/css/main.801ad185.css.map",
-    "main.863f3424.js.map": "/controldedinero/static/js/main.863f3424.js.map",
+    "main.b2ea01ef.css.map": "/controldedinero/static/css/main.b2ea01ef.css.map",
+    "main.a1575d84.js.map": "/controldedinero/static/js/main.a1575d84.js.map",
     "787.412a8a2e.chunk.js.map": "/controldedinero/static/js/787.412a8a2e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.801ad185.css",
-    "static/js/main.863f3424.js"
+    "static/css/main.b2ea01ef.css",
+    "static/js/main.a1575d84.js"
   ]
 }
