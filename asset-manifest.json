@@ -1,16 +1,19 @@
 {
   "files": {
     "main.css": "/controldedinero/static/css/main.77aa74e7.css",
-    "main.js": "/controldedinero/static/js/main.a1575d84.js",
+    "main.js": "/controldedinero/static/js/main.f10d99b0.js",
     "static/js/787.412a8a2e.chunk.js": "/controldedinero/static/js/787.412a8a2e.chunk.js",
+    "static/media/Wallet.png": "/controldedinero/static/media/Wallet.53b2fd11847304001b44.png",
+    "static/media/busqueda.png": "/controldedinero/static/media/busqueda.8325886af5a7e03f4494.png",
+    "static/media/astro.png": "/controldedinero/static/media/astro.7f600a8f96e9f512342e.png",
     "static/media/logo.svg": "/controldedinero/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/controldedinero/index.html",
     "main.77aa74e7.css.map": "/controldedinero/static/css/main.77aa74e7.css.map",
-    "main.a1575d84.js.map": "/controldedinero/static/js/main.a1575d84.js.map",
+    "main.f10d99b0.js.map": "/controldedinero/static/js/main.f10d99b0.js.map",
     "787.412a8a2e.chunk.js.map": "/controldedinero/static/js/787.412a8a2e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.77aa74e7.css",
-    "static/js/main.a1575d84.js"
+    "static/js/main.f10d99b0.js"
   ]
 }
