@@ -14,18 +14,26 @@ import { db } from "./firebase";
 import axios from "axios";
 
 // CREATE
-export const createItem = async (obj, obj2, obj3, imagen) => {
+export const createItem = async (obj, obj2, obj3, imagen,idUsuario) => {
   if (imagen === undefined) {
-    addDoc(collection(db, "persons"), { obj, obj2, obj3 });
+    addDoc(collection(db, "persons"), { obj, obj2, obj3,idUsuario });
   } else {
-    addDoc(collection(db, "persons"), { obj, obj2, obj3, imagen });
+    addDoc(collection(db, "persons"), { obj, obj2, obj3, imagen,idUsuario });
   }
 };
 
-export const getItems = async () => {
-  const result = await getDocs(query(collection(db, "persons")));
+export const getItems = async (idUsuario) => {
+  const result = await getDocs(query(collection(db, "persons"),where("idUsuario", "==", idUsuario)),);
+ 
   return result;
 };
+
+export const getItemsFecha = async (idUsuario,fecha) => {
+  const result = await getDocs(query(collection(db, "persons"),where("idUsuario", "==", idUsuario),where("obj3", "==", fecha)),);
+ 
+  return result;
+};
+
 export const deleteItem = (id) => {
   const docRef = doc(db, "persons", id);
   deleteDoc(docRef)

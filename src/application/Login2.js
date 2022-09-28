@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
 const Login2 = ({user,setUser}) => {
     
@@ -17,6 +17,7 @@ signInWithPopup(auth, provider)
     setUser(user.email)
     // ...
   }).catch((error) => {
+    console.log(error);
     // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;

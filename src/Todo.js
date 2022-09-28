@@ -1,11 +1,13 @@
 import React from "react";
+import Busqueda from "./application/busqueda.png";
 const Todos = ({ todos, loading, handleEliminar,handleEditar,handleEditar2,handleEditar3 }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
   return (
     <table className="uk-table ">
-      <thead>
+      
+      {todos.length == 0 ? (<div className="uk-flex uk-flex-column uk-flex-middle"><h3 className="filtros">Sin resultados</h3><img style={{width: '50%'}} src ={Busqueda } /></div>):<thead>
         <tr>
           <th>Nombre</th>
           <th>Cantidad</th>
@@ -13,8 +15,7 @@ const Todos = ({ todos, loading, handleEliminar,handleEditar,handleEditar2,handl
           <th>Imagen</th>
           <th>Acciones</th>
         </tr>
-      </thead>
-
+      </thead>}
       {todos.map((o) => (
         <tr>
           {" "}
@@ -48,7 +49,7 @@ const Todos = ({ todos, loading, handleEliminar,handleEditar,handleEditar2,handl
                  <button
               class="uk-button uk-button-secondary verde"
               onClick={() => handleEditar3(o.id,o.data().obj2)}
-            ><span uk-icon="credit-card"></span></button>
+            ><img src="image.png" /></button>
            
               
             

@@ -1,13 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 body{
-    background-color: #FBAB7E;
-background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-height: 2100px;
+    /* background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%); */
+background-color: #28293D;
+height: 2500px;
+font-family: 'Poppins', sans-serif;
 width: 100%;
+
+}
+.white{
+    color: white;
+}
+.react-calendar {
+    width: 350px;
+    max-width: 100%;
+    background: none;
+    border: 1px solid #a0a096;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    line-height: 1.125em;
+  }
+  .react-calendar--doubleView {
+    width: 700px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+    font-family: 'Poppins', sans-serif;
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+    font-family: 'Poppins', sans-serif;
+  }
+  .react-calendar,
+  .react-calendar *,
+  .react-calendar *:before,
+  .react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  .react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+  }
+  .react-calendar button:enabled:hover {
+    cursor: pointer;
+  }
+  .react-calendar__navigation {
+    display: flex;
+    height: 44px;
+    margin-bottom: 1em;
+  }
+  .react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+  }
+  .react-calendar__navigation button:disabled {
+    background-color: #f0f0f0;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #e6e6e6;
+  }
+  .react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75em;
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+  }
+  .react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+  }
+  .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: #757575;
+    font-family: 'Poppins', sans-serif;
+  }
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+  }
+  .react-calendar__tile {
+    max-width: 100%;
+    padding: 10px 6.6667px;
+    background: none;
+    text-align: center;
+    line-height: 16px;
+    
+  }
+  .react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+  }
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+  }
+  .react-calendar__tile--now {
+    background: #ffff76;
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: #ffffa9;
+  }
+  .react-calendar__tile--hasActive {
+    background: #76baff;
+  }
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+  }
+  .react-calendar__tile--active {
+    background: #006edc;
+    color: white;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: #1087ff;
+  }
+  .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+    
+  }
+  
+.imagenCartera{
+    width:10%;
+}
+.imagenInicio{
+    width:10%;
+}
+h3{
+    color:#EAEAEA;
+    font-family: 'Poppins', sans-serif;
+}
+.filtros{
+    color: #28293D;
+    font-family: 'Poppins', sans-serif;
 }
 button{
     font-size: 15px;
 
 }
+
 .amarillo{
     background-color: yellow;
 }
@@ -20,7 +172,7 @@ button{
     width:70%;
 }
 .naranja{
-    background-color:#FBAB7E;
+    background-color:#5986F2;
     color: white;
     font-weight:bold;
 }
@@ -127,8 +279,8 @@ li {
 }
 li:hover a {
     color: #fdfdfd;
-    background-color: #FBAB7E;
-    border: solid 1px #FBAB7E;
+    background-color: #5986F2;
+    border: solid 1px #5986F2;
     text-decoration: none;
 }
 li.active a {
@@ -255,14 +407,16 @@ li a {
      /* border: 1px solid black; */ 
      border:none;
     color: white;
-    background-color:#FBAB7E;
+    background-color:#5986F2;
     padding: 10px 13px;
     min-width: 130px;
     line-height: 1.5em;
     white-space: no-wrap;
     text-transform: uppercase;
     cursor: pointer;
+    margin-bottom: 10px;
 }
+
 [class*="btn-glitch-"] .text, [class*="btn-glitch-"] .decoration {
     display: inline-block;
 }
@@ -354,23 +508,54 @@ li a {
         width: 10%;
     }
 }
-
+.menu{
+    display: none;
+}
 @media (max-width: 600px)
 
 {
+    .imagenInicio{
+        width:50%;
+    }
+    .imagenCartera{
+        width:15%;
+    }
+    .nav{
+        display: none;
+    }
+    .menu{
+        display: block;
+    }
     button{
         font-size: 18px;
+    }
+    tr {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    thead{
+        display: none;
     }
     
     .fondo{
         width: 100%;
-        background-color: #FBAB7E;
-        background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+      /*   background-color: #FBAB7E;
+        background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%); */
+        background-color: #28293D;
+    }
+    h1{
+        font-size: 6em;
+    }
+    h2{
+        font-size: 3.5em;
     }
     .botones{
         display:flex;
         justify-content: center;
-        margin-bottom: 300px;
+        flex-direction: column;
+        margin-bottom: 100px;
     }
     .large {
         width: auto;
@@ -390,8 +575,9 @@ li a {
    
     .fondo{
         width: 100%;
-        background-color: #FBAB7E;
-        background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    /*     background-color: #FBAB7E;
+        background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%); */
+        background-color: #28293D;
     }
     .botones{
         display:flex;

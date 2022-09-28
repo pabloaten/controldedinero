@@ -16,10 +16,12 @@ import "alertifyjs/build/css/alertify.css";
 import axios from "axios";
 import Pagination from "./Pagination";
 import Todos from "./Todo";
+import Cartera from "./application/Wallet.png";
+import Busqueda from "./application/busqueda.png";
 import SVGatorComponent from "./application/undraw_transfer_money_re_6o1h";
 
 
-function App() {
+function App({id}) {
   const [item, setItem] = useState([]);
   const [item2, setItem2] = useState([]);
   const [objetos, setObjetos] = useState([]);
@@ -49,7 +51,7 @@ function App() {
   }, []);
 
   const obtenerDatos = async () => {
-    const p = await getItems();
+    const p = await getItems(id);
     console.log(p.docs[0].id);
     setObjetos(p.docs);
     let valor = 0;
@@ -79,7 +81,7 @@ function App() {
           } else {
             b = "";
           }
-          createItem(item, item2, date, b);
+          createItem(item, item2, date, b,id);
           alertify.success("Se ha creado correctamente");
           setItem("");
           setItem2("");
@@ -89,7 +91,7 @@ function App() {
     }
   };
   const handleOrdenarFecha = async () => {
-    const p = await getItems();
+    const p = await getItems(id);
 
     setObjetos(
       p.docs.sort(function (c, d) {
@@ -102,7 +104,7 @@ function App() {
     console.log(objetos[0].data());
   };
   const handleOrdenarFechaInverso = async () => {
-    const p = await getItems();
+    const p = await getItems(id);
 
     setObjetos(
       p.docs.sort(function (c, d) {
@@ -115,7 +117,7 @@ function App() {
     console.log(objetos[0].data());
   };
   const handleOrdenar = async () => {
-    const p = await getItems();
+    const p = await getItems(id)
 
     setObjetos(
       p.docs.sort(function (c, d) {
@@ -135,7 +137,7 @@ function App() {
     console.log(objetos[0].data());
   };
   const handleOrdenarReverse = async () => {
-    const p = await getItems();
+    const p = await getItems(id)
 
     setObjetos(
       p.docs.sort(function (c, d) {
@@ -217,7 +219,7 @@ function App() {
   const handleBuscarFecha = async () => {
     /* console.log(setFecha(nombre)); */
     console.log(fecha.toString());
-    const p = await getItems();
+    const p = await getItems(id)
     let fecha2 = new Date(fecha);
     const fecha3 = `${fecha2.getFullYear()}/${
       fecha2.getMonth() + 1
@@ -240,7 +242,7 @@ function App() {
         <span>Aten</span>
         <span>Aten</span>
       </h1>
-
+      <h2>Goodman</h2>
       <h3 className="uk-heading uk-text-center uk-text-bold">{date}</h3>
 
       <div class="uk-card uk-card-small uk-card-default uk-padding uk-margin tarjeta uk-box-shadow-large">
@@ -261,8 +263,8 @@ function App() {
         {/*   <button class="uk-button naranja uk-margin" onClick={handleSave}>
           Guardar
         </button> */}
-        <div className="uk-flex botones uk-flex-wrap uk-flex-around uk-flex-middle uk-height-medium">
-          <button onClick={handleSave} class="btn-glitch-fill">
+        <div className="uk-flex botones uk-flex-column uk-margin">
+          <button onClick={handleSave} class="btn-glitch-fill uk-margin">
             <span class="text">// Añadir</span>
             <span class="text-decoration">_</span>
             <span class="decoration">&rArr;</span>
@@ -270,6 +272,9 @@ function App() {
           {/* <button class="uk-button naranja uk-margin" onClick={handleOrdenar}>
           Cantidad
         </button> */}
+        <h1 class="uk-heading-divider"></h1>
+        <h3 className="uk-heading uk-text-center uk-text-bold filtros">FILTROS</h3>
+        <div className="uk-flex uk-flex-center botones">
           <button onClick={handleOrdenar} class="btn-glitch-fill">
             <span class="text">// Mas barato</span>
             <span class="text-decoration">_</span>
@@ -317,6 +322,7 @@ function App() {
             <span class="text-decoration">_</span>
             <span class="decoration">&rArr;</span>
           </button>
+          </div>
           {/*   <button
           href="#toggle-animation"
           class="uk-button naranja uk-button-default"
@@ -325,6 +331,8 @@ function App() {
         >
           Fecha especifica
         </button> */}
+          <h1 class="uk-heading-divider"></h1>
+          <br></br>
           <button
             onClick={handleOrdenar}
             class="btn-glitch-fill"
@@ -336,20 +344,30 @@ function App() {
             <span class="text-decoration">_</span>
             <span class="decoration">&rArr;</span>
           </button>
-          <div className="uk-margin" id="toggle-animation">
+          <div className="uk-margin uk-flex uk-flex-column uk-flex-center uk-flex-middle" id="toggle-animation">
             {" "}
             <input
+            style={{width:"20%",marginBottom:"20px"}}
               className="uk-input"
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
               type="date"
             />
-            <button
+           {/*  <button
               class="uk-button naranja uk-margin"
               onClick={handleBuscarFecha}
             >
               Buscar
-            </button>
+            </button> */}
+              <button
+          
+          onClick={handleBuscarFecha}
+          class="btn-glitch-fill"
+        >
+          <span class="text">// Buscar</span>
+          <span class="text-decoration">_</span>
+          <span class="decoration">&rArr;</span>
+        </button>
           </div>
           {/* <button
           href="#toggle"
@@ -379,6 +397,7 @@ function App() {
             type="string"
           />
         </div>
+        
         <div class="uk-overflow-auto">
           <Todos
             todos={currentTodos}
@@ -395,7 +414,7 @@ function App() {
           paginate={paginate}
         />
         <h1 class="uk-heading-divider"></h1>
-        <p>Tus ingresos totales son: {total}€</p>
+        <p><img className="imagenCartera" src={Cartera} />Tus ingresos totales son: {total}€</p>
         <button
           type="button"
           uk-toggle="target: #offcanvas-flip"
@@ -411,7 +430,7 @@ function App() {
           <div class="uk-offcanvas-bar">
             <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-            <h3>Contacto</h3>
+            <h3>Contacto😎</h3>
 
             <form
               target="_blank"
